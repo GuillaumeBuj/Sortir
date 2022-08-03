@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    Pseudo: {{ user.pseudo }}<br>
+    Nom: {{ user.nom }}<br>
+    Prénom: {{ user.prenom }}<br>
+    Email: {{ user.eMail }}<br>
+    ETC...
+{% endblock %}
+
+{% block title %}
+    Profil de {{ user.pseudo }}
+{% endblock %}
+

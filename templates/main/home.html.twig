@@ -2,6 +2,8 @@ Sortir en freestyle
 (page bidon pour avoir les liens)
 
 <a href="{{ path('app_register') }}">register</a>
-{% if app.user %} <a href="{{ path('app_logout') }}">Logout({{ app.user.pseudo }})</a>
+{% if app.user %}
+    <a href="{{ path('user_profile', {'id': app.user.id }) }}">mon profil</a>
+    <a href="{{ path('app_logout') }}">Logout({{ app.user.pseudo }})</a>
 {% else %}<a href="{{ path('app_login') }}">login</a>
 {% endif %}
