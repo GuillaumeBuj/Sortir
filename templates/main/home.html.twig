@@ -1,9 +1,40 @@
+<!DOCTYPE html>
 Sortir en freestyle
 (page bidon pour avoir les liens)
-
 <a href="{{ path('app_register') }}">register</a>
 {% if app.user %}
     <a href="{{ path('user_profile', {'id': app.user.id }) }}">mon profil</a>
     <a href="{{ path('app_logout') }}">Logout({{ app.user.pseudo }})</a>
 {% else %}<a href="{{ path('app_login') }}">login</a>
 {% endif %}
+<html>
+<head>
+    <title>Slide Navbar</title>
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/base.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@500&display=swap" rel="stylesheet">
+</head>
+<body>
+<div class="main">
+    <input type="checkbox" id="chk" aria-hidden="true">
+
+    <div class="signup">
+        <form>
+            <label for="chk" aria-hidden="true">S'enregistrer</label>
+            <input type="text" name="txt" placeholder="Pseudo" required="">
+            <input type="email" name="email" placeholder="Email" required="">
+            <input type="password" name="pswd" placeholder="Mot de passe" required="">
+            <button>S'enregistrer</button>
+        </form>
+    </div>
+
+    <div class="login">
+        <form>
+            <label for="chk" aria-hidden="true">Se Connecter</label>
+            <input type="email" name="email" placeholder="Email" required="">
+            <input type="password" name="pswd" placeholder="Mot de passe" required="">
+            <button>Se Connecter</button>
+        </form>
+    </div>
+</div>
+</body>
+</html>
