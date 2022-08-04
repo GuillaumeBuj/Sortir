@@ -1,40 +1,74 @@
-<!DOCTYPE html>
-Sortir en freestyle
-(page bidon pour avoir les liens)
-<a href="{{ path('app_register') }}">register</a>
-{% if app.user %}
-    <a href="{{ path('user_profile', {'id': app.user.id }) }}">mon profil</a>
-    <a href="{{ path('app_logout') }}">Logout({{ app.user.pseudo }})</a>
-{% else %}<a href="{{ path('app_login') }}">login</a>
-{% endif %}
-<html>
-<head>
-    <title>Slide Navbar</title>
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/base.css') }}">
-    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@500&display=swap" rel="stylesheet">
-</head>
-<body>
-<div class="main">
-    <input type="checkbox" id="chk" aria-hidden="true">
+{% extends 'base.html.twig' %}
 
-    <div class="signup">
-        <form>
-            <label for="chk" aria-hidden="true">S'enregistrer</label>
-            <input type="text" name="txt" placeholder="Pseudo" required="">
-            <input type="email" name="email" placeholder="Email" required="">
-            <input type="password" name="pswd" placeholder="Mot de passe" required="">
-            <button>S'enregistrer</button>
-        </form>
-    </div>
+{% block title %}Log in!{% endblock %}
 
-    <div class="login">
-        <form>
-            <label for="chk" aria-hidden="true">Se Connecter</label>
-            <input type="email" name="email" placeholder="Email" required="">
-            <input type="password" name="pswd" placeholder="Mot de passe" required="">
-            <button>Se Connecter</button>
-        </form>
+{% block body %}
+    <form method="post">
+    {% if error %}
+        <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+    {% endif %}
+
+    {% if app.user %}
+        <div class="mb-3">
+            You are logged in as {{ app.user.userIdentifier }}, <a href="{{ path('app_logout') }}">Logout</a>
+        </div>
+    {% endif %}
+
+
+    <div class="login-wrap">
+        <div class="login-html">
+            <input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1" class="tab">Sign In</label>
+            <input id="tab-2" type="radio" name="tab" class="sign-up"><label for="tab-2" class="tab">Sign Up</label>
+            <div class="login-form">
+                <div class="sign-in-htm">
+                    <div class="group">
+                        <label for="inputPseudo">Pseudo</label>
+                        <input type="text" value="{{ last_username }}" name="pseudo" id="inputPseudo" class="form-control" autocomplete="username" required autofocus>
+                    </div>
+                    <div class="group">
+                        <label for="pass" class="label">Password</label>
+                        <input type="password" name="password" id="inputPassword" class="form-control" autocomplete="current-password" required>
+                    </div>
+                    <div class="group">
+                        <input id="check" type="checkbox" class="check" checked>
+                        <label for="check"><span class="icon"></span> Keep me Signed in</label>
+                    </div>
+                    <div class="group">
+                        <input type="submit" class="button" value="Sign In">
+                    </div>
+                    <div class="hr"></div>
+                    <div class="foot-lnk">
+                        <a href="#forgot">Forgot Password?</a>
+                    </div>
+                </div>
+                <div class="sign-up-htm">
+                    <div class="group">
+                        <label for="user" class="label">Username</label>
+                        <input id="user" type="text" class="input">
+                    </div>
+                    <div class="group">
+                        <label for="pass" class="label">Mot de passe</label>
+                        <input id="pass" type="password" class="input" data-type="password">
+                    </div>
+                    <div class="group">
+                        <label for="pass" class="label">Ressaisir le mot de passe</label>
+                        <input id="pass" type="password" class="input" data-type="password">
+                    </div>
+                    <div class="group">
+                        <label for="pass" class="label">Adresse Mail</label>
+                        <input id="pass" type="text" class="input">
+                    </div>
+                    <div class="group">
+                        <input type="submit" class="button" value="S'inscrire">
+                    </div>
+                    <div class="hr"></div>
+                    <div class="foot-lnk">
+                        <input type="hidden" name="_csrf_token"
+                               value="{{ csrf_token('authenticate') }}"
+                        >
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-</div>
-</body>
-</html>
+{% endblock %}
