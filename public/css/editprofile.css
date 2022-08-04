@@ -33,16 +33,18 @@ body{
 }
 .profile-head h5{
     color: #333;
+    font-weight: 600;
 }
 .profile-head h6{
     color: #0062cc;
+    font-weight: 600;
 }
 .profile-edit-btn{
     border: none;
     border-radius: 1.5rem;
     width: 100%;
     padding: 2%;
-    font-weight: 600;
+    font-weight: 625;
     color: #6c757d;
     cursor: pointer;
 }
@@ -50,6 +52,7 @@ body{
     font-size: 12px;
     color: #818182;
     margin-top: 5%;
+    font-weight: 750;
 }
 .proile-rating span{
     color: #495057;
@@ -72,7 +75,7 @@ body{
     margin-top: -15%;
 }
 .profile-work p{
-    font-size: 12px;
+    font-size: 17px;
     color: #818182;
     font-weight: 600;
     margin-top: 10%;
@@ -80,8 +83,8 @@ body{
 .profile-work a{
     text-decoration: none;
     color: #495057;
-    font-weight: 600;
-    font-size: 14px;
+    font-weight: 625;
+    font-size: 16px;
 }
 .profile-work ul{
     list-style: none;
@@ -94,30 +97,62 @@ body{
     color: #0062cc;
 }
 #user_nom {
-    font-weight: 600;
-    color: #0062cc;
-    margin-top: 0;
+    border: none;
+    padding: 15px 20px;
+    border-radius: 25px;
+    background: rgba(70, 70, 70, 0.1);
+    width: 100%;
+    color: ##2f2f2f;;
+    display: block;
     box-sizing: border-box;
-    margin-bottom: 1rem;
+    font: 600 16px/18px 'Open Sans',sans-serif;
 }
 #user_prenom {
-    font-weight: 600;
-    color: #0062cc;
-    margin-top: 0;
+    border: none;
+    padding: 15px 20px;
+    border-radius: 25px;
+    background: rgba(70, 70, 70, 0.1);
+    width: 100%;
+    color: ##2f2f2f;;
+    display: block;
     box-sizing: border-box;
-    margin-bottom: 1rem;
+    font: 600 16px/18px 'Open Sans',sans-serif;
 }
 #user_telephone {
-    font-weight: 600;
-    color: #0062cc;
-    margin-top: 0;
+    border: none;
+    padding: 15px 20px;
+    border-radius: 25px;
+    background: rgba(70, 70, 70, 0.1);
+    width: 100%;
+    color: ##2f2f2f;;
+    display: block;
     box-sizing: border-box;
-    margin-bottom: 1rem;
+    font: 600 16px/18px 'Open Sans',sans-serif;
 }
 #user_eMail {
-    font-weight: 600;
-    color: #0062cc;
-    margin-top: 0;
+    border: none;
+    padding: 15px 20px;
+    border-radius: 25px;
+    background: rgba(70, 70, 70, 0.1);
+    width: 100%;
+    color: ##2f2f2f;;
+    display: block;
     box-sizing: border-box;
-    margin-bottom: 1rem;
+    font: 600 16px/18px 'Open Sans',sans-serif;
+
+}
+#user_image {
+    border: none;
+    padding: 15px 20px;
+    border-radius: 25px;
+    background: rgba(70, 70, 70, 0.1);
+    width: 100%;
+    color: ##2f2f2f;;
+    display: block;
+    box-sizing: border-box;
+    font: 600 16px/18px 'Open Sans',sans-serif;
+
+}
+.btn{
+    font-weight: 600
 }
