@@ -14,45 +14,40 @@ class Sortie
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\Column]
-    private ?int $idSortie = null;
-
-    #[ORM\Column(length: 100)]
+    #[ORM\Column(length: 255)]
     private ?string $nom = null;
 
     #[ORM\Column(type: Types::DATETIME_MUTABLE)]
     private ?\DateTimeInterface $dateHeureDebut = null;
 
     #[ORM\Column]
-    private ?\DateInterval $duree = null;
+    private ?int $duree = null;
 
     #[ORM\Column(type: Types::DATE_MUTABLE)]
     private ?\DateTimeInterface $dateLimiteInscription = null;
 
-    #[ORM\Column]
+    #[ORM\Column(nullable: true)]
     private ?int $nbInscriptionsMax = null;
 
-    #[ORM\Column(type: Types::TEXT)]
-    private ?string $infosSortie = null;
+    #[ORM\ManyToOne(inversedBy: 'sorties')]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?EtatSortie $etat = null;
 
-    #[ORM\Column(length: 50)]
-    private ?int $etat = null;
+    #[ORM\ManyToOne(inversedBy: 'sorties')]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?Lieu $lieu = null;
+
+    #[ORM\ManyToOne(inversedBy: 'sorties')]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?User $organisateur = null;
+
+    #[ORM\ManyToOne(inversedBy: 'sorties')]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?Campus $siteOrganisateur = null;
 
     public function getId(): ?int
     {
         return $this->id;
-    }
-
-    public function getIdSortie(): ?int
-    {
-        return $this->idSortie;
-    }
-
-    public function setIdSortie(int $idSortie): self
-    {
-        $this->idSortie = $idSortie;
-
-        return $this;
     }
 
     public function getNom(): ?string
@@ -79,12 +74,12 @@ class Sortie
         return $this;
     }
 
-    public function getDuree(): ?\DateInterval
+    public function getDuree(): ?int
     {
         return $this->duree;
     }
 
-    public function setDuree(\DateInterval $duree): self
+    public function setDuree(int $duree): self
     {
         $this->duree = $duree;
 
@@ -108,33 +103,57 @@ class Sortie
         return $this->nbInscriptionsMax;
     }
 
-    public function setNbInscriptionsMax(int $nbInscriptionsMax): self
+    public function setNbInscriptionsMax(?int $nbInscriptionsMax): self
     {
         $this->nbInscriptionsMax = $nbInscriptionsMax;
 
         return $this;
     }
 
-    public function getInfosSortie(): ?string
-    {
-        return $this->infosSortie;
-    }
-
-    public function setInfosSortie(string $infosSortie): self
-    {
-        $this->infosSortie = $infosSortie;
-
-        return $this;
-    }
-
-    public function getEtat(): ?string
+    public function getEtat(): ?EtatSortie
     {
         return $this->etat;
     }
 
-    public function setEtat(string $etat): self
+    public function setEtat(?EtatSortie $etat): self
     {
         $this->etat = $etat;
+
+        return $this;
+    }
+
+    public function getLieu(): ?Lieu
+    {
+        return $this->lieu;
+    }
+
+    public function setLieu(?Lieu $lieu): self
+    {
+        $this->lieu = $lieu;
+
+        return $this;
+    }
+
+    public function getOrganisateur(): ?User
+    {
+        return $this->organisateur;
+    }
+
+    public function setOrganisateur(?User $organisateur): self
+    {
+        $this->organisateur = $organisateur;
+
+        return $this;
+    }
+
+    public function getSiteOrganisateur(): ?Campus
+    {
+        return $this->siteOrganisateur;
+    }
+
+    public function setSiteOrganisateur(?Campus $siteOrganisateur): self
+    {
+        $this->siteOrganisateur = $siteOrganisateur;
 
         return $this;
     }
