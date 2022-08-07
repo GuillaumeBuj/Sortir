@@ -1,13 +1,28 @@
 {% extends 'base.html.twig' %}
 
+{% block title %} Create {% endblock %}
+
 {% block body %}
     {{ form_start(villeForm)  }}
-        {{ form_widget(villeForm) }}
-        <button>Ajouter</button>
-    {{ form_end(villeForm) }}
+
+
+<div class="login-wrap">
+    <div class="login-html">
+        <input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1" class="tab">Sign In</label>
+        <input id="tab-2" type="radio" name="tab" class="sign-up"><label for="tab-2" class="tab"></label>
+        <div class="login-form">
+            <div class="sign-in-htm">
+                <div class="group">
+                    {{ form_widget(villeForm) }}
+
+                </div>
+                <div class="group">
+                    <input type="submit" class="button" value="Sign In">
+                    {{ form_end(villeForm) }}
+                </div>
+                <div class="hr"></div>
+                <div class="foot-lnk">
+                    <input type="hidden" name="_csrf_token"
+                           value="{{ csrf_token('authenticate') }}"
+                           >
 {% endblock %}
-
-{% block title %}
-
-{% endblock %}
-
