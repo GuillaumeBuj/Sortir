@@ -56,7 +56,9 @@ class SortieController extends AbstractController
         $participants=$sortie->getParticipants();
         $currentUser=$this->getUser();
 
-        $currentUser->participerA($sortie);
+        //condition: état 'ouverte' et date limite d'inscription non dépassée
+        if($sortie->getEtat()->getLibelle()=='Ouverte' && $sortie->getDateLimiteInscription()>new \DateTime('now'))
+            $currentUser->participerA($sortie);
 
         $entityManager->flush();
 
