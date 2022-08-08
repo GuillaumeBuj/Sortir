@@ -45,6 +45,9 @@ class Sortie
     #[ORM\JoinColumn(nullable: false)]
     private ?Campus $siteOrganisateur = null;
 
+    #[ORM\Column(type: Types::TEXT, nullable: true)]
+    private ?string $infosSortie = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -154,6 +157,18 @@ class Sortie
     public function setSiteOrganisateur(?Campus $siteOrganisateur): self
     {
         $this->siteOrganisateur = $siteOrganisateur;
+
+        return $this;
+    }
+
+    public function getInfosSortie(): ?string
+    {
+        return $this->infosSortie;
+    }
+
+    public function setInfosSortie(?string $infosSortie): self
+    {
+        $this->infosSortie = $infosSortie;
 
         return $this;
     }
