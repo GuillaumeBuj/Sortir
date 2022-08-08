@@ -49,12 +49,18 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\ManyToOne(inversedBy: 'users')]
     private ?Campus $campus = null;
 
+    //sorties créés par l'utilisateur
     #[ORM\OneToMany(mappedBy: 'organisateur', targetEntity: Sortie::class)]
     private Collection $sorties;
+
+    //sorties auxquelles l'utilisateur participe
+    #[ORM\ManyToMany(targetEntity: Sortie::class, inversedBy: 'participants')]
+    private Collection $participationsSorties;
 
     public function __construct()
     {
         $this->sorties = new ArrayCollection();
+        $this->participationsSorties = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -245,6 +251,30 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
                 $sorty->setOrganisateur(null);
             }
         }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Sortie>
+     */
+    public function getParticipationsSorties(): Collection
+    {
+        return $this->participationsSorties;
+    }
+
+    public function addParticipationsSorty(Sortie $participationsSorty): self
+    {
+        if (!$this->participationsSorties->contains($participationsSorty)) {
+            $this->participationsSorties->add($participationsSorty);
+        }
+
+        return $this;
+    }
+
+    public function removeParticipationsSorty(Sortie $participationsSorty): self
+    {
+        $this->participationsSorties->removeElement($participationsSorty);
 
         return $this;
     }
