@@ -4,6 +4,7 @@ namespace App\Repository;
 
 use App\Entity\Sortie;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use Doctrine\ORM\Tools\Pagination\Paginator;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
@@ -37,6 +38,16 @@ class SortieRepository extends ServiceEntityRepository
         if ($flush) {
             $this->getEntityManager()->flush();
         }
+    }
+
+    public function listeSortiesPubliees()
+    {
+        $queryBuilder = $this->createQueryBuilder('sortie')
+            ->where("sortie.etat BETWEEN 2 AND 6")
+            ->orderBy('sortie.dateHeureDebut', 'ASC');
+        $query = $queryBuilder->getQuery();
+
+        return new Paginator($query);
     }
 
 //    /**
