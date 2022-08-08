@@ -1,13 +1,20 @@
 {% extends 'base.html.twig' %}
 
+{% block stylesheets %}
+<link rel="stylesheet" type="text/css" href="{{ asset('css/sortie.css') }}"
+{% endblock %}
 {% block body %}
     {{ form_start(sortieForm)  }}
-        {{ form_widget(sortieForm) }}
-        <button>Créer sortie</button>
-    {{ form_end(sortieForm) }}
-{% endblock %}
 
-{% block title %}
-
-{% endblock %}
-
+<div id="form-main">
+    <div id="form-div">
+        <form class="form" id="form1">
+            {{ form_widget(sortieForm) }}
+            <div class="submit">
+                <button>Créer sortie</button>
+                <div class="ease"></div>
+                {{ form_end(sortieForm) }}
+            </div>
+        </form>
+    </div>
+    {% endblock %}

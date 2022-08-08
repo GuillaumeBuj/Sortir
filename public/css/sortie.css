@@ -1,0 +1,597 @@
+@import url(https://fonts.googleapis.com/css?family=Montserrat:400,700);
+
+html{    background:url("http://www.philippefercha.com/img/home-page.jpg") no-repeat;
+    background-size: cover;
+    height:100%;
+}
+*::-webkit-input-placeholder {
+    color:#000;
+}
+#feedback-page{
+    text-align:center;
+}
+
+#form-main{
+    width:100%;
+    float:left;
+    padding-top:0px;
+}
+
+#form-div {
+    background: #fff;
+    padding-left:35px;
+    padding-right:35px;
+    padding-top:35px;
+    padding-bottom:35px;
+    width: 450px;
+    float: left;
+    left: 50%;
+    position: absolute;
+    margin-top:30px;
+    margin-left: -260px;
+}
+
+.feedback-input {
+    color:#000;
+    font-family: Montserrat, Arial, sans-serif;
+    font-weight:300;
+    font-size: 14px;
+    border-radius: 0;
+    line-height: 22px;
+    background-color: #fff;
+    padding: 13px 13px 13px 13px;
+    margin-bottom: 10px;
+    width:100%;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    box-sizing: border-box;
+    border: 0px solid transparent;
+    border-bottom: 1px solid #000;
+}
+
+.feedback-input:focus{
+    background: #fff;
+    box-shadow: 0;
+    color: #000;
+    outline: none;
+    padding: 13px 13px 13px 13px;
+}
+
+.focused{
+    color:#000;
+    border:#30aed6 solid 2px;
+}
+
+textarea {
+    width: 100%;
+    height: 150px;
+    line-height: 150%;
+    resize:vertical;
+}
+
+input:hover, textarea:hover,
+input:focus, textarea:focus {
+    background-color:white;
+}
+
+#button-blue{
+    font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+    float:left;
+    width: 100%;
+    border: 0px solid transparent;
+    cursor:pointer;
+    background-color: #000;
+    color:white;
+    font-size:18px;
+    padding-top:22px;
+    padding-bottom:22px;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    transition: all 0.3s;
+    margin-top:-4px;
+    font-weight:300;
+}
+
+#button-blue:hover{
+    background-color: #fff;
+    color: #000;
+    border: 1px solid #000;
+}
+
+.submit:hover {
+    color: #3498db;
+}
+
+.ease {
+    width: 0px;
+    height: 74px;
+    background-color: #fbfbfb;
+    -webkit-transition: .3s ease;
+    -moz-transition: .3s ease;
+    -o-transition: .3s ease;
+    -ms-transition: .3s ease;
+    transition: .3s ease;
+}
+
+.submit:hover .ease{
+    width:100%;
+    background-color:white;
+}
+
+@media only screen and (max-width: 580px) {
+    #form-div{
+        left: 3%;
+        margin-right: 3%;
+        width: 88%;
+        margin-left: 0;
+        padding-left: 3%;
+        padding-right: 3%;
+    }
+}
+#sortie_nom{
+    color: #000;
+
+    font-family: Montserrat, Arial, sans-serif;
+    font-weight: 300;
+    font-size: 14px;
+    border-radius: 0;
+    line-height: 22px;
+    background-color: #fff;
+    padding: 13px 13px 13px 13px;
+    margin-bottom: 10px;
+    width: 100%;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    box-sizing: border-box;
+    border: 0px solid transparent;
+    border-bottom-color: transparent;
+    border-bottom-style: solid;
+    border-bottom-width: 0px;
+    border-bottom: 1px solid #000;
+    font: 600 16px/18px 'Open Sans',sans-serif;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 18px;
+    font-family: "Open Sans", sans-serif;
+}
+#sortie_duree{
+    color: #000;
+
+    font-family: Montserrat, Arial, sans-serif;
+    font-weight: 300;
+    font-size: 14px;
+    border-radius: 0;
+    line-height: 22px;
+    background-color: #fff;
+    padding: 13px 13px 13px 13px;
+    margin-bottom: 10px;
+    width: 100%;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    box-sizing: border-box;
+    border: 0px solid transparent;
+    border-bottom-color: transparent;
+    border-bottom-style: solid;
+    border-bottom-width: 0px;
+    border-bottom: 1px solid #000;
+    font: 600 16px/18px 'Open Sans',sans-serif;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 18px;
+    font-family: "Open Sans", sans-serif;
+}
+#sortie_lieu{
+    color: #000;
+
+    font-family: Montserrat, Arial, sans-serif;
+    font-weight: 300;
+    font-size: 14px;
+    border-radius: 0;
+    line-height: 22px;
+    background-color: #fff;
+    padding: 13px 13px 13px 13px;
+    margin-bottom: 10px;
+    width: 100%;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    box-sizing: border-box;
+    border: 0px solid transparent;
+    border-bottom-color: transparent;
+    border-bottom-style: solid;
+    border-bottom-width: 0px;
+    border-bottom: 1px solid #000;
+    font: 600 16px/18px 'Open Sans',sans-serif;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 18px;
+    font-family: "Open Sans", sans-serif;
+}
+#sortie_nbInscriptionsMax{
+    color: #000;
+
+    font-family: Montserrat, Arial, sans-serif;
+    font-weight: 300;
+    font-size: 14px;
+    border-radius: 0;
+    line-height: 22px;
+    background-color: #fff;
+    padding: 13px 13px 13px 13px;
+    margin-bottom: 10px;
+    width: 100%;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    box-sizing: border-box;
+    border: 0px solid transparent;
+    border-bottom-color: transparent;
+    border-bottom-style: solid;
+    border-bottom-width: 0px;
+    border-bottom: 1px solid #000;
+    font: 600 16px/18px 'Open Sans',sans-serif;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 18px;
+    font-family: "Open Sans", sans-serif;
+}
+#sortie_InfosSortie{
+    background-color: white;
+    color: #000;
+
+    font-family: Montserrat, Arial, sans-serif;
+
+    font-weight: 300;
+
+    font-size: 14px;
+
+    border-radius: 0;
+
+    line-height: 22px;
+
+    background-color: #fff;
+
+    padding: 13px 13px 13px 13px;
+
+    margin-bottom: 10px;
+
+    width: 100%;
+
+    -webkit-box-sizing: border-box;
+
+    -moz-box-sizing: border-box;
+
+    -ms-box-sizing: border-box;
+
+    box-sizing: border-box;
+
+    border: 0px solid transparent;
+
+    border-bottom-color: transparent;
+    border-bottom-style: solid;
+    border-bottom-width: 0px;
+
+    border-bottom: 1px solid #000;
+    width: 100%;
+
+    height: 150px;
+
+    line-height: 150%;
+
+    resize: vertical;
+    font: 600 16px/18px 'Open Sans',sans-serif;
+
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 18px;
+    font-family: "Open Sans", sans-serif;
+}
+button{
+    background-color: #fff;
+
+    color: #000;
+
+    border: 1px solid #000;
+    font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+
+    float: left;
+
+    width: 100%;
+
+    border: 0px solid transparent;
+
+    cursor: pointer;
+
+    background-color: #000;
+
+    color: white;
+
+    font-size: 18px;
+
+    padding-top: 22px;
+
+    padding-bottom: 22px;
+
+    -webkit-transition: all 0.3s;
+
+    -moz-transition: all 0.3s;
+
+    transition: all 0.3s;
+
+    margin-top: -4px;
+
+    font-weight: 300;
+    box-sizing: border-box;
+    font: 600 16px/18px 'Open Sans',sans-serif;
+
+    font-weight: 600;
+    font-size: 16px;
+    font-family: "Open Sans", sans-serif;
+}
+.required{
+    background: #fff;
+    box-shadow: 0;
+    color: #000;
+    outline: none;
+    font-family: Montserrat, Arial, sans-serif;
+    font-weight: 300;
+    font-size: 14px;
+    border-radius: 0;
+    line-height: 22px;
+    background-color: #fff;
+    margin-bottom: 10px;
+}
+sortie_dateHeureDebut_date_month{
+    position: relative;
+    grid-template-columns: 1fr 1fr;
+    height: 19.625rem;
+    display: grid;
+    gap: 2rem;
+    height: 100%;
+    box-sizing: inherit;
+    color: rgb(12, 19, 31);
+    font-size: 0.875rem;
+    line-height: 1.43;
+}
+label{
+    background: #fff;
+    box-shadow: 0;
+    color: #000;
+    outline: none;
+    font-family: Montserrat, Arial, sans-serif;
+    font-weight: 300;
+    font-size: 14px;
+    border-radius: 0;
+    line-height: 22px;
+    background-color: #fff;
+    margin-bottom: 10px;
+}
+#lieu_nom {
+    color: #000;
+
+    font-family: Montserrat, Arial, sans-serif;
+    font-weight: 300;
+    font-size: 14px;
+    border-radius: 0;
+    line-height: 22px;
+    background-color: #fff;
+    padding: 13px 13px 13px 13px;
+    margin-bottom: 10px;
+    width: 100%;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    box-sizing: border-box;
+    border: 0px solid transparent;
+    border-bottom-color: transparent;
+    border-bottom-style: solid;
+    border-bottom-width: 0px;
+    border-bottom: 1px solid #000;
+    font: 600 16px/18px 'Open Sans', sans-serif;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 18px;
+    font-family: "Open Sans", sans-serif;
+}
+#lieu_rue {
+    color: #000;
+
+    font-family: Montserrat, Arial, sans-serif;
+    font-weight: 300;
+    font-size: 14px;
+    border-radius: 0;
+    line-height: 22px;
+    background-color: #fff;
+    padding: 13px 13px 13px 13px;
+    margin-bottom: 10px;
+    width: 100%;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    box-sizing: border-box;
+    border: 0px solid transparent;
+    border-bottom-color: transparent;
+    border-bottom-style: solid;
+    border-bottom-width: 0px;
+    border-bottom: 1px solid #000;
+    font: 600 16px/18px 'Open Sans', sans-serif;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 18px;
+    font-family: "Open Sans", sans-serif;
+}
+#lieu_latitude {
+    color: #000;
+
+    font-family: Montserrat, Arial, sans-serif;
+    font-weight: 300;
+    font-size: 14px;
+    border-radius: 0;
+    line-height: 22px;
+    background-color: #fff;
+    padding: 13px 13px 13px 13px;
+    margin-bottom: 10px;
+    width: 100%;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    box-sizing: border-box;
+    border: 0px solid transparent;
+    border-bottom-color: transparent;
+    border-bottom-style: solid;
+    border-bottom-width: 0px;
+    border-bottom: 1px solid #000;
+    font: 600 16px/18px 'Open Sans', sans-serif;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 18px;
+    font-family: "Open Sans", sans-serif;
+}
+#lieu_longitude {
+    color: #000;
+
+    font-family: Montserrat, Arial, sans-serif;
+    font-weight: 300;
+    font-size: 14px;
+    border-radius: 0;
+    line-height: 22px;
+    background-color: #fff;
+    padding: 13px 13px 13px 13px;
+    margin-bottom: 10px;
+    width: 100%;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    box-sizing: border-box;
+    border: 0px solid transparent;
+    border-bottom-color: transparent;
+    border-bottom-style: solid;
+    border-bottom-width: 0px;
+    border-bottom: 1px solid #000;
+    font: 600 16px/18px 'Open Sans', sans-serif;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 18px;
+    font-family: "Open Sans", sans-serif;
+}
+#sortie_InfosSortie{
+    background-color: white;
+    color: #000;
+
+    font-family: Montserrat, Arial, sans-serif;
+
+    font-weight: 300;
+
+    font-size: 14px;
+
+    border-radius: 0;
+
+    line-height: 22px;
+
+    background-color: #fff;
+
+    padding: 13px 13px 13px 13px;
+
+    margin-bottom: 10px;
+
+    width: 100%;
+
+    -webkit-box-sizing: border-box;
+
+    -moz-box-sizing: border-box;
+
+    -ms-box-sizing: border-box;
+
+    box-sizing: border-box;
+
+    border: 0px solid transparent;
+
+    border-bottom-color: transparent;
+    border-bottom-style: solid;
+    border-bottom-width: 0px;
+
+    border-bottom: 1px solid #000;
+    width: 100%;
+
+    height: 150px;
+
+    line-height: 150%;
+
+    resize: vertical;
+    font: 600 16px/18px 'Open Sans',sans-serif;
+
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 18px;
+    font-family: "Open Sans", sans-serif;
+}
+#lieu_ville {
+// A reset of styles, including removing the default dropdown arrow
+appearance: none;
+// Additional resets for further consistency
+background-color: transparent;
+    border: none;
+    padding: 0 1em 0 0;
+    margin: 0;
+    width: 100%;
+    font-family: inherit;
+    font-size: inherit;
+    cursor: inherit;
+    line-height: inherit;
+}
+#ville_nom {
+    color: #000;
+
+    font-family: Montserrat, Arial, sans-serif;
+    font-weight: 300;
+    font-size: 14px;
+    border-radius: 0;
+    line-height: 22px;
+    background-color: #fff;
+    padding: 13px 13px 13px 13px;
+    margin-bottom: 10px;
+    width: 100%;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    box-sizing: border-box;
+    border: 0px solid transparent;
+    border-bottom-color: transparent;
+    border-bottom-style: solid;
+    border-bottom-width: 0px;
+    border-bottom: 1px solid #000;
+    font: 600 16px/18px 'Open Sans', sans-serif;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 18px;
+    font-family: "Open Sans", sans-serif;
+}
+#ville_codePostal {
+    color: #000;
+
+    font-family: Montserrat, Arial, sans-serif;
+    font-weight: 300;
+    font-size: 14px;
+    border-radius: 0;
+    line-height: 22px;
+    background-color: #fff;
+    padding: 13px 13px 13px 13px;
+    margin-bottom: 10px;
+    width: 100%;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    box-sizing: border-box;
+    border: 0px solid transparent;
+    border-bottom-color: transparent;
+    border-bottom-style: solid;
+    border-bottom-width: 0px;
+    border-bottom: 1px solid #000;
+    font: 600 16px/18px 'Open Sans', sans-serif;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 18px;
+    font-family: "Open Sans", sans-serif;
+}

@@ -1,12 +1,19 @@
 {% extends 'base.html.twig' %}
 
+{% block stylesheets %}
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/sortie.css') }}"
+{% endblock %}
 {% block body %}
     {{ form_start(lieuForm) }}
+
+<div id="form-main">
+    <div id="form-div">
+        <form class="form" id="form1">
         {{ form_widget(lieuForm) }}
+            <div class="submit">
+                <div class="ease"></div>
         <button>Ajouter lieu</button>
 {% endblock %}
 
-{% block title %}
-    Ajouter lieu
-{% endblock %}
+
 

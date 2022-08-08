@@ -1,23 +1,20 @@
 {% extends 'base.html.twig' %}
 
-{% block title %} Create {% endblock %}
-
+{% block stylesheets %}
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/sortie.css') }}"
+{% endblock %}
 {% block body %}
     {{ form_start(villeForm)  }}
 
 
-<div class="login-wrap">
-    <div class="login-html">
-        <input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1" class="tab">Créer</label>
-        <input id="tab-2" type="radio" name="tab" class="sign-up"><label for="tab-2" class="tab"></label>
-        <div class="login-form">
-            <div class="sign-in-htm">
-                <div class="group">
+<div id="form-main">
+    <div id="form-div">
+        <form class="form" id="form1">
                     {{ form_widget(villeForm) }}
 
-                </div>
-                <div class="group">
-                    <input type="submit" class="button" value="Créer">
+            <div class="submit">
+                <button>Créer sortie</button>
+                <div class="ease"></div>
                     {{ form_end(villeForm) }}
                 </div>
                 <div class="hr"></div>
