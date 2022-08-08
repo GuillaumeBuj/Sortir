@@ -67,5 +67,21 @@ class SortieController extends AbstractController
         ]);
     }
 
+    #[Route('/sortie/participer/{id}', name:'participer')]
+    public function seDesister(int $id, SortieRepository $sortieRepository, EntityManagerInterface $entityManager)
+    {
+        $sortie=$sortieRepository->find($id);
+        $currentUser=$this->getUser();
+
+        $currentUser->participerA($sortie);
+
+        $entityManager->flush();
+
+        return $this->render('sortie/details.html.twig',[
+            'sortie'=>$sortie,
+            'currentUser'=>$currentUser,
+            'participants'=>$participants
+        ]);
+    }
 
 }

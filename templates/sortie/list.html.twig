@@ -6,6 +6,7 @@
             {% for sortie in sorties %}
                 <li>{{ sortie.nom }}, à {{ sortie.lieu.nom }}
                     <a href="{{ path('participer', {'id': sortie.id}) }}"> -Participer- </a>
+                    <a href="{{ path('se_desister', {'id': sortie.id}) }}"> -Se désisterr- </a>
                 </li>
             {% endfor %}
         </ul>
