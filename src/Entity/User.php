@@ -272,7 +272,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return $this;
     }
 
-    public function removeParticipationsSorty(Sortie $participationsSorty): self
+    public function seDesister(Sortie $participationsSorty): self
     {
         $this->participationsSorties->removeElement($participationsSorty);
 
