@@ -263,7 +263,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return $this->participationsSorties;
     }
 
-    public function addParticipationsSorty(Sortie $participationsSorty): self
+    public function participerA(Sortie $participationsSorty): self
     {
         if (!$this->participationsSorties->contains($participationsSorty)) {
             $this->participationsSorties->add($participationsSorty);

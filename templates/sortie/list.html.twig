@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <section>
+        <ul>
+            {% for sortie in sorties %}
+                <li>{{ sortie.nom }}, à {{ sortie.lieu.nom }}
+                    <a href="{{ path('participer', {'id': sortie.id}) }}"> -Participer- </a>
+                </li>
+            {% endfor %}
+        </ul>
+    </section>
+{% endblock %}
+
+{% block title %}
+
+{% endblock %}
+
