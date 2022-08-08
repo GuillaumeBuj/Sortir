@@ -18,12 +18,17 @@
     <nav>
         <ul>
             <li><a href="{{ path('main_home') }}">Home</a></li>
-            <li><a href="{{ path('app_register') }}">Register</a></li>
-                {% if app.user %}
-                    <li><a href="{{ path('user_profile', {'id': app.user.id }) }}">mon profil</a></li>
+                 {% if app.user %}
+                    <li><a href="{{ path('user_profile', {'id': app.user.id }) }}">Mon profil</a></li>
+                    <li><a href="{{ path('user_profile_edit', {'id': app.user.id }) }}">Editer mon profil</a></li>
                     <li><a href="{{ path('app_logout') }}">Logout({{ app.user.pseudo }})</a></li>
+                    <li><a href="{{ path('sortie_create') }}">Créer sortie</a></li>
+                    <li><a href="{{ path('lieu_create') }}">Créer lieu</a></li>
+                    <li><a href="{{ path('ville_create') }}">Créer ville</a></li>
+                    <li><a href="{{ path('sortie_list') }}">Liste des sorties/Participer/Se désister</a></li>
                 {% else %}
                     <li><a href="{{ path('app_login') }}">login</a></li>
+                    <li><a href="{{ path('app_register') }}">Register</a></li>
                 {% endif %}
 
         </ul>
