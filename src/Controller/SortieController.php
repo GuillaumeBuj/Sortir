@@ -120,11 +120,27 @@ class SortieController extends AbstractController
 
         if($annulationForm->isSubmitted() && $annulationForm->isValid()){
             $entityManager->persist($sortie);
-            $entityManager->flush();}
+            $entityManager->flush();
+        return $this->redirectToRoute('sortie_mes_sorties');
+        }
 
         return $this->render('sortie/annuler.html.twig',[
             'annulationForm' => $annulationForm->createView(),
             'sortie'=>$sortie
         ]);
+    }
+
+    #[Route('/sortie/publier/{id}', name:'publier')]
+    public function publier(int $id, Request $request,SortieRepository $sortieRepository, EntityManagerInterface $entityManager)
+    {
+        $sortie=$sortieRepository->find($id);
+
+        $repoEtat = $entityManager->getRepository(EtatSortie::class);
+        $sortie->setEtat($repoEtat->findOneBy(array('libelle' => 'Ouverte')));
+
+        $entityManager->persist($sortie);
+        $entityManager->flush();
+
+        return $this->redirectToRoute('sortie_mes_sorties');
     }
 }
