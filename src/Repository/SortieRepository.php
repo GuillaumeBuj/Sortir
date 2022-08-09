@@ -50,6 +50,18 @@ class SortieRepository extends ServiceEntityRepository
         return new Paginator($query);
     }
 
+    public function listeSortiesParOrganisateur($id)
+    {
+        $queryBuilder = $this->createQueryBuilder('sortie')
+            ->where("sortie.organisateur = $id")
+            ->orderBy('sortie.dateHeureDebut', 'ASC');
+        $query = $queryBuilder->getQuery();
+
+        return new Paginator($query);
+    }
+
+
+
 //    /**
 //     * @return Sortie[] Returns an array of Sortie objects
 //     */

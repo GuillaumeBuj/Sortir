@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <section>
+        <ul>
+            {% for sortie in sorties %}
+                <li>{{ sortie.nom }}, à {{ sortie.lieu.nom }}. Etat: {{ sortie.etat.libelle }}
+                    <a href="{{ path('annuler', {'id': sortie.id}) }}"> -Annuler- </a>
+                </li>
+            {% endfor %}
+        </ul>
+    </section>
+{% endblock %}
+
+{% block title %}
+
+{% endblock %}
+

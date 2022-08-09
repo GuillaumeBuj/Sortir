@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\EtatSortie;
 use App\Entity\Sortie;
+use App\Form\AnnulationType;
 use App\Form\SortieType;
 use App\Repository\SortieRepository;
 use Doctrine\ORM\EntityManagerInterface;
@@ -59,6 +60,17 @@ class SortieController extends AbstractController
         ]);
     }
 
+    #[Route('/sortie/mes_sorties', name: 'sortie_mes_sorties')]
+    public function listeMesSorties(SortieRepository $sortieRepository): Response
+    {
+        $user=$this->getUser()->getId();
+        $sorties=$sortieRepository->listeSortiesParOrganisateur($user);
+
+        return $this->render('sortie/mes_sorties.html.twig', [
+            "sorties"=>$sorties
+        ]);
+    }
+
     #[Route('/sortie/participer/{id}', name:'participer')]
     public function participer(int $id, SortieRepository $sortieRepository, EntityManagerInterface $entityManager)
     {
@@ -95,4 +107,24 @@ class SortieController extends AbstractController
         ]);
     }
 
+    #[Route('/sortie/annuler/{id}', name:'annuler')]
+    public function annuler(int $id, Request $request,SortieRepository $sortieRepository, EntityManagerInterface $entityManager)
+    {
+        $sortie=$sortieRepository->find($id);
+
+        $repoEtat = $entityManager->getRepository(EtatSortie::class);
+        $sortie->setEtat($repoEtat->findOneBy(array('libelle' => 'Annulée')));
+
+        $annulationForm = $this->createForm(AnnulationType::class, $sortie);
+        $annulationForm->handleRequest($request);
+
+        if($annulationForm->isSubmitted() && $annulationForm->isValid()){
+            $entityManager->persist($sortie);
+            $entityManager->flush();}
+
+        return $this->render('sortie/annuler.html.twig',[
+            'annulationForm' => $annulationForm->createView(),
+            'sortie'=>$sortie
+        ]);
+    }
 }
