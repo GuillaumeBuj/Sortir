@@ -4,3 +4,4 @@ INSERT INTO `etat_sortie`(`id`, `libelle`) VALUES ('3','Clôturée');
 INSERT INTO `etat_sortie`(`id`, `libelle`) VALUES ('4','Activité en cours');
 INSERT INTO `etat_sortie`(`id`, `libelle`) VALUES ('5','Passée');
 INSERT INTO `etat_sortie`(`id`, `libelle`) VALUES ('6','Annulée');
+INSERT INTO `etat_sortie`(`id`, `libelle`) VALUES ('7','Archivée');

@@ -224,4 +224,12 @@ class Sortie
 
         return $this;
     }
+
+    public function getDateHeureFin()
+    {
+        $dateHeureFin = clone $this->getDateHeureDebut();
+        $duree = new \DateInterval('PT'.$this->getDuree().'H');
+        $dateHeureFin->add($duree);
+        return $dateHeureFin;
+    }
 }

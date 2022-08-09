@@ -4,7 +4,7 @@
     <section>
         <ul>
             {% for sortie in sorties %}
-                <li>{{ sortie.nom }}, à {{ sortie.lieu.nom }}. Etat: {{ sortie.etat.libelle }}
+                <li>{{ sortie.dateHeureDebut | date('d-m-Y')}}...{{ sortie.dateHeureFin | date('d-m-Y')}}: {{ sortie.nom }}, à {{ sortie.lieu.nom }}. Etat: {{ sortie.etat.libelle }}
                     <a href="{{ path('annuler', {'id': sortie.id}) }}"> -Annuler- </a>
                     <a href="{{ path('publier', {'id': sortie.id}) }}"> -Publier- </a>
                 </li>

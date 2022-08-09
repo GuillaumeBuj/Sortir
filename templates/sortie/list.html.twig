@@ -4,7 +4,7 @@
     <section>
         <ul>
             {% for sortie in sorties %}
-                <li>{{ sortie.nom }}, à {{ sortie.lieu.nom }}
+                <li>{{ sortie.dateHeureDebut | date('d-m-Y')}}...{{ sortie.dateHeureFin | date('d-m-Y')}}: {{ sortie.nom }}, à {{ sortie.lieu.nom }}. Etat: {{ sortie.etat.libelle }}
                     <a href="{{ path('participer', {'id': sortie.id}) }}"> -Participer- </a>
                     <a href="{{ path('se_desister', {'id': sortie.id}) }}"> -Se désister- </a>
                 </li>

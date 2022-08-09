@@ -7,6 +7,7 @@ use App\Entity\Sortie;
 use App\Form\AnnulationType;
 use App\Form\SortieType;
 use App\Repository\SortieRepository;
+use App\Service\GestionEtat;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -51,9 +52,13 @@ class SortieController extends AbstractController
     }*/
 
    #[Route('/sortie/list', name: 'sortie_list')]
-    public function listePubliees(SortieRepository $sortieRepository): Response
+    public function listePubliees(SortieRepository $sortieRepository, GestionEtat $gestionEtat, EntityManagerInterface $entityManager): Response
     {
-        $sorties=$sortieRepository->listeSortiesPubliees();
+          $sorties=$sortieRepository->listeSortiesPubliees();
+
+        //!!!!Mise à jour du statut!!!!
+        foreach ($sorties as $sortie)
+            {$gestionEtat->mettreAJour($sortie,$entityManager);}
 
         return $this->render('sortie/list.html.twig', [
             "sorties"=>$sorties
@@ -61,10 +66,15 @@ class SortieController extends AbstractController
     }
 
     #[Route('/sortie/mes_sorties', name: 'sortie_mes_sorties')]
-    public function listeMesSorties(SortieRepository $sortieRepository): Response
+    public function listeMesSorties(SortieRepository $sortieRepository, GestionEtat $gestionEtat, EntityManagerInterface $entityManager): Response
     {
+
         $user=$this->getUser()->getId();
         $sorties=$sortieRepository->listeSortiesParOrganisateur($user);
+
+        //!!!!Mise à jour du statut!!!!
+        foreach ($sorties as $sortie)
+            {$gestionEtat->mettreAJour($sortie,$entityManager);}
 
         return $this->render('sortie/mes_sorties.html.twig', [
             "sorties"=>$sorties
@@ -143,4 +153,18 @@ class SortieController extends AbstractController
 
         return $this->redirectToRoute('sortie_mes_sorties');
     }
+
+    /*#[Route('/sortie/publier/{id}', name:'publier')]
+    public function mettreAJour(int $id, Request $request,SortieRepository $sortieRepository, EntityManagerInterface $entityManager)
+    {
+        $sortie=$sortieRepository->find($id);
+
+        $repoEtat = $entityManager->getRepository(EtatSortie::class);
+        $sortie->setEtat($repoEtat->findOneBy(array('libelle' => 'Ouverte')));
+
+        $entityManager->persist($sortie);
+        $entityManager->flush();
+
+        return $this->redirectToRoute('sortie_mes_sorties');
+    }*/
 }

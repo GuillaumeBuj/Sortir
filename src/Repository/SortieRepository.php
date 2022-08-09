@@ -40,6 +40,7 @@ class SortieRepository extends ServiceEntityRepository
         }
     }
 
+    //sorties publiées non archivées
     public function listeSortiesPubliees()
     {
         $queryBuilder = $this->createQueryBuilder('sortie')
