@@ -1,19 +1,25 @@
 {% extends 'base.html.twig' %}
 
+{% block title %}
+    {{ parent() }} - Liste de mes sorties
+{% endblock %}
+
 {% block body %}
     <section>
+        Sorties que j'ai organisées<br>
         <ul>
             {% for sortie in sorties %}
-                <li>{{ sortie.dateHeureDebut | date('d-m-Y')}}...{{ sortie.dateHeureFin | date('d-m-Y')}}: {{ sortie.nom }}, à {{ sortie.lieu.nom }}. Etat: {{ sortie.etat.libelle }}
-                    <a href="{{ path('annuler', {'id': sortie.id}) }}"> -Annuler- </a>
-                    <a href="{{ path('publier', {'id': sortie.id}) }}"> -Publier- </a>
+                <li>Le {{ sortie.dateHeureDebut | date('d-m-Y')}}: {{ sortie.nom }}, à {{ sortie.lieu.nom }}. Etat: {{ sortie.etat.libelle }}
+                    {% if(sortie.etat.getLibelle=="Créée" or sortie.etat.getLibelle=="Ouverte" or sortie.etat.getLibelle=="Clôturée") %}
+                         <a href="{{ path('annuler', {'id': sortie.id}) }}"> -Annuler- </a>
+                    {% endif %}
+                    {% if(sortie.etat.getLibelle=="Créée") %}
+                        <a href="{{ path('publier', {'id': sortie.id}) }}"> -Publier- </a>
+                    {% endif %}
                 </li>
             {% endfor %}
         </ul>
     </section>
 {% endblock %}
 
-{% block title %}
-
-{% endblock %}
 

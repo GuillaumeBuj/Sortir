@@ -1,5 +1,5 @@
 {% extends 'base.html.twig' %}
-
+{% block title %}{{ parent() }} - Créer sortie{% endblock %}
 {% block stylesheets %}
 <link rel="stylesheet" type="text/css" href="{{ asset('css/sortie.css') }}"
 {% endblock %}
@@ -17,4 +17,4 @@
             </div>
         </form>
     </div>
-    {% endblock %}
+{% endblock %}

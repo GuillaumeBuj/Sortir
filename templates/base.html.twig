@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
+        <title>{% block title %}Sortir{% endblock %}</title>
         <link rel="stylesheet" type="text/css" href="{{ asset('css/base.css') }}"
         <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
         {# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
@@ -18,7 +18,9 @@
     <body>
     <nav>
         <div class="logo">
-            <img src="http://image.noelshack.com/fichiers/2022/32/3/1660094642-logosortir.png" />
+            <a href="{{ path('main_home') }}">
+                <img src="http://image.noelshack.com/fichiers/2022/32/3/1660094642-logosortir.png" />
+            </a>
         </div>
         <ul class="nav-links">
                  {% if app.user %}

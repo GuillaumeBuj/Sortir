@@ -23,6 +23,9 @@ class VilleController extends AbstractController
         if($villeForm->isSubmitted() && $villeForm->isValid()){
             $entityManager->persist($ville);
             $entityManager->flush();
+
+            $this->addFlash('success','Ville créée!');
+            return $this->redirectToRoute('main_home');
         }
 
         return $this->render('ville/create.html.twig', [

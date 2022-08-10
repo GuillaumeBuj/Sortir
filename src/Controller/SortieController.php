@@ -34,7 +34,10 @@ class SortieController extends AbstractController
         if($sortieForm->isSubmitted() && $sortieForm->isValid()){
             $entityManager->persist($sortie);
             $entityManager->flush();
-    }
+
+            $this->addFlash('success','Sortie créée!');
+            return $this->redirectToRoute('main_home');
+        }
 
         return $this->render('sortie/create.html.twig', [
             'sortieForm' => $sortieForm->createView()
@@ -94,11 +97,8 @@ class SortieController extends AbstractController
 
         $entityManager->flush();
 
-        return $this->render('sortie/details.html.twig',[
-            'sortie'=>$sortie,
-            'currentUser'=>$currentUser,
-            'participants'=>$participants
-        ]);
+        $this->addFlash('success','Inscrit!');
+        return $this->redirectToRoute('sortie_list',[]);
     }
 
     #[Route('/sortie/se_desister/{id}', name:'se_desister')]
@@ -111,10 +111,8 @@ class SortieController extends AbstractController
 
         $entityManager->flush();
 
-        return $this->render('sortie/details.html.twig',[
-            'sortie'=>$sortie,
-            'currentUser'=>$currentUser,
-        ]);
+        $this->addFlash('success','Désinscrit!');
+        return $this->redirectToRoute('sortie_list',[]);
     }
 
     #[Route('/sortie/annuler/{id}', name:'annuler')]

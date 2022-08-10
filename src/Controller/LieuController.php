@@ -23,6 +23,9 @@ class LieuController extends AbstractController
         if($lieuForm->isSubmitted() && $lieuForm->isValid()){
             $entityManager->persist($lieu);
             $entityManager->flush();
+
+            $this->addFlash('success','Lieu créé!');
+            return $this->redirectToRoute('main_home');
         }
 
 
