@@ -1,7 +1,7 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}
-    {{ parent() }} - Liste des sorties
+    {{ parent() }} - Liste de mes inscriptions
 {% endblock %}
 
 {% block body %}
@@ -9,17 +9,11 @@
         <ul>
             {% for sortie in sorties %}
                 <li>Le {{ sortie.dateHeureDebut | date('d-m-Y')}}: {{ sortie.nom }}, à {{ sortie.lieu.nom }}. Etat: {{ sortie.etat.libelle }}
-                    {% if(sortie.etat.getLibelle == 'Ouverte') %}
-                        <a href="{{ path('sortie_participer', {'id': sortie.id}) }}"> -Participer- </a>
-                    {% endif %}
                     {% if(sortie.getParticipants().contains(app.user)) %}
-                        <a href="{{ path('sortie_se_desister', {'id': sortie.id}) }}"> -Se désister- </a>
+                        <a href="{{ path('sortie_mes_inscriptions', {'id': sortie.id}) }}"> -Se désister- </a>
                     {% endif %}
                 </li>
             {% endfor %}
         </ul>
     </section>
 {% endblock %}
-
-
-

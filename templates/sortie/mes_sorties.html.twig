@@ -11,10 +11,10 @@
             {% for sortie in sorties %}
                 <li>Le {{ sortie.dateHeureDebut | date('d-m-Y')}}: {{ sortie.nom }}, à {{ sortie.lieu.nom }}. Etat: {{ sortie.etat.libelle }}
                     {% if(sortie.etat.getLibelle=="Créée" or sortie.etat.getLibelle=="Ouverte" or sortie.etat.getLibelle=="Clôturée") %}
-                         <a href="{{ path('annuler', {'id': sortie.id}) }}"> -Annuler- </a>
+                         <a href="{{ path('sortie_annuler', {'id': sortie.id}) }}"> -Annuler- </a>
                     {% endif %}
                     {% if(sortie.etat.getLibelle=="Créée") %}
-                        <a href="{{ path('publier', {'id': sortie.id}) }}"> -Publier- </a>
+                        <a href="{{ path('sortie_publier', {'id': sortie.id}) }}"> -Publier- </a>
                     {% endif %}
                 </li>
             {% endfor %}

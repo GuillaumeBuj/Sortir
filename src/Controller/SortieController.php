@@ -84,7 +84,23 @@ class SortieController extends AbstractController
         ]);
     }
 
-    #[Route('/sortie/participer/{id}', name:'participer')]
+    #[Route('/sortie/mes_inscriptions', name: 'sortie_mes_inscriptions')]
+    public function listeMesInscriptions(/*SortieRepository $sortieRepository, */GestionEtat $gestionEtat, EntityManagerInterface $entityManager): Response
+    {
+
+        $user=$this->getUser();
+        $sorties=$user->getParticipationsSorties();
+
+        //!!!!Mise à jour du statut!!!!
+        foreach ($sorties as $sortie)
+        {$gestionEtat->mettreAJour($sortie,$entityManager);}
+
+        return $this->render('sortie/mes_inscriptions.html.twig', [
+            "sorties"=>$sorties
+        ]);
+    }
+
+    #[Route('/sortie/participer/{id}', name:'sortie_participer')]
     public function participer(int $id, SortieRepository $sortieRepository, EntityManagerInterface $entityManager)
     {
         $sortie=$sortieRepository->find($id);
@@ -101,7 +117,7 @@ class SortieController extends AbstractController
         return $this->redirectToRoute('sortie_list',[]);
     }
 
-    #[Route('/sortie/se_desister/{id}', name:'se_desister')]
+    #[Route('/sortie/se_desister/{id}', name:'sortie_se_desister')]
     public function seDesister(int $id, SortieRepository $sortieRepository, EntityManagerInterface $entityManager)
     {
         $sortie=$sortieRepository->find($id);
@@ -115,7 +131,7 @@ class SortieController extends AbstractController
         return $this->redirectToRoute('sortie_list',[]);
     }
 
-    #[Route('/sortie/annuler/{id}', name:'annuler')]
+    #[Route('/sortie/annuler/{id}', name:'sortie_annuler')]
     public function annuler(int $id, Request $request,SortieRepository $sortieRepository, EntityManagerInterface $entityManager)
     {
         $sortie=$sortieRepository->find($id);
@@ -138,7 +154,7 @@ class SortieController extends AbstractController
         ]);
     }
 
-    #[Route('/sortie/publier/{id}', name:'publier')]
+    #[Route('/sortie/publier/{id}', name:'sortie_publier')]
     public function publier(int $id, Request $request,SortieRepository $sortieRepository, EntityManagerInterface $entityManager)
     {
         $sortie=$sortieRepository->find($id);
@@ -152,7 +168,7 @@ class SortieController extends AbstractController
         return $this->redirectToRoute('sortie_mes_sorties');
     }
 
-    /*#[Route('/sortie/publier/{id}', name:'publier')]
+    /*#[Route('/sortie/détails/{id}', name:'details')]
     public function mettreAJour(int $id, Request $request,SortieRepository $sortieRepository, EntityManagerInterface $entityManager)
     {
         $sortie=$sortieRepository->find($id);
