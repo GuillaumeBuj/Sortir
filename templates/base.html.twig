@@ -3,10 +3,11 @@
     <head>
         <meta charset="UTF-8">
         <title>{% block title %}Welcome!{% endblock %}</title>
-        <link rel="stylesheet" type="text/css" href="{{ asset('css/global.css') }}"
+        <link rel="stylesheet" type="text/css" href="{{ asset('css/base.css') }}"
         <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
         {# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
         {% block stylesheets %}
+
             {{ encore_entry_link_tags('app') }}
         {% endblock %}
 
@@ -16,21 +17,21 @@
     </head>
     <body>
     <nav>
-        <ul>
-            <li><a href="{{ path('main_home') }}">Home</a></li>
+        <div class="logo">
+            <img src="http://image.noelshack.com/fichiers/2022/32/3/1660094642-logosortir.png" />
+        </div>
+        <ul class="nav-links">
                  {% if app.user %}
-                    <li><a href="{{ path('user_profile', {'id': app.user.id }) }}">Mon profil</a></li>
-                    <li><a href="{{ path('user_profile_edit', {'id': app.user.id }) }}">Editer mon profil</a></li>
-                    <li><a href="{{ path('app_logout') }}">Logout({{ app.user.pseudo }})</a></li>
-                    <li><a href="{{ path('sortie_create') }}">Créer sortie</a></li>
-                    <li><a href="{{ path('lieu_create') }}">Créer lieu</a></li>
-                    <li><a href="{{ path('ville_create') }}">Créer ville</a></li>
-                    <li><a href="{{ path('sortie_list') }}">Liste des sorties / Participer / Se désister</a></li>
-                    <li><a href="{{ path('sortie_mes_sorties') }}">Liste de mes organisations de sorties / Publier / Annuler</a></li>
-                {% else %}
-                    <li><a href="{{ path('app_login') }}">login</a></li>
+
+                  <li><a href="{{ path('user_profile', {'id': app.user.id }) }}">Mon profil</a></li>
+                     <li><a href="{{ path('app_logout') }}">Logout</a></li>
+
+                 {% else %}
+                    <li><a href="{{ path('app_login') }}">Login</a></li>
                     <li><a href="{{ path('app_register') }}">Register</a></li>
-                {% endif %}
+                     <li><a href="contact"> Contact</a></li>
+
+                 {% endif %}
 
         </ul>
         <br>

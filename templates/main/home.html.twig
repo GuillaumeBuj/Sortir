@@ -1,10 +1,132 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Log in!{% endblock %}
-
 {% block body %}
-    <form method="post">
 
+    <form method="post">
+    {% if app.user %}
+        <form>
+            <button type="submit" formaction="{{ path('sortie_create') }}">Créer une sortie</button>
+            <button type="submit" formaction="{{ path('lieu_create') }}">Créer lieu</button>
+            <button type="submit" formaction="{{ path('ville_create') }}">Créer ville</button>
+            <button type="submit" formaction="{{ path('sortie_list') }}">Liste des sorties</button>
+            <button type="submit" formaction="{{ path('sortie_mes_sorties') }}">Liste des organisations</button>
+
+        </form>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600&display=swap" rel="stylesheet">
+        <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+
+        <div class="container">
+            <div class="schedule-header">
+
+            </div>
+            <h1 class="schedule-title" style="margin-top: 48px;">My schedule</h1>
+            <div class="schedule">
+                <div class="schedule-category">
+                    <div class="category-header c1">
+                        <i class="ri-macbook-line"></i> Campus Nantes
+                    </div>
+                    <div class="event schedule-event in-progress">
+                        <div class="icon-wrapper">
+                            <div class="event-icon">
+                                <i class="ri-sticky-note-line"></i>
+                            </div>
+                        </div>
+                        <div class="event-content">
+                            <div class="event-title">
+                                Daily sprint
+                            </div>
+                            <div class="event-subtitle">
+                                08:00 AM
+                            </div>
+                        </div>
+                        <div class="event-status">
+                            <div class="event-timer event-progress">
+                                <div class="progress-label">In Prog</div>13:45
+                            </div>
+                            <div class="event-btns">
+                                <i class="ri-notification-3-line alert-icon"></i>
+                                <i class="ri-arrow-down-s-line expand-icon"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="event schedule-event">
+                        <div class="icon-wrapper">
+                            <div class="event-icon">
+                                <i class="ri-slideshow-4-line"></i>
+                            </div>
+                        </div>
+                        <div class="event-content">
+                            <div class="event-title">
+                                Project meeting
+                            </div>
+                            <div class="event-subtitle">
+                                11:30 PM
+                            </div>
+                        </div>
+                        <div class="event-status">
+                            <div class="event-timer">03:16:15</div>
+                            <div class="event-btns">
+                                <i class="ri-notification-3-line alert-icon"></i>
+                                <i class="ri-arrow-down-s-line expand-icon"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="event schedule-event">
+                        <div class="icon-wrapper">
+                            <div class="event-icon">
+                                <i class="ri-slideshow-4-line"></i>
+                            </div>
+                        </div>
+                        <div class="event-content">
+                            <div class="event-title">
+                                Retrospective meeting
+                            </div>
+                            <div class="event-subtitle">
+                                15:00 PM
+                            </div>
+                        </div>
+                        <div class="event-status">
+                            <div class="event-timer">06:46:15</div>
+                            <div class="event-btns">
+                                <i class="ri-notification-3-line alert-icon"></i>
+                                <i class="ri-arrow-down-s-line expand-icon"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="schedule-category">
+                    <div class="category-header c2">
+                        <i class="ri-sun-line"></i> Campus Rennes
+                    </div>
+                    <div class="event">
+                        <div class="icon-wrapper">
+                            <div class="event-icon">
+                                <i class="ri-cup-line"></i>
+                            </div>
+                        </div>
+                        <div class="event-content">
+                            <div class="event-title">
+                                Lunch
+                            </div>
+                            <div class="event-subtitle">
+                                12:30 PM
+                            </div>
+                        </div>
+                        <div class="event-status">
+                            <div class="event-timer">04:16:15</div>
+                            <div class="event-btns">
+                                <i class="ri-notification-3-line alert-icon"></i>
+                                <i class="ri-arrow-down-s-line expand-icon"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endif %}
 
 
 {% endblock %}

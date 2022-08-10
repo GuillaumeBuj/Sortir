@@ -16,6 +16,7 @@
                     </div>
                 </div>
             </div>
+
             <div class="col-md-6">
                 <div class="profile-head">
                     <h5>
@@ -35,7 +36,7 @@
                 </div>
             </div>
             <div class="col-md-2">
-                <input type="submit" class="profile-edit-btn" name="btnAddMore" value="Modifier le Profil"/>
+                <a href="{{ path('user_profile_edit', {'id': app.user.id }) }}">Editer mon profil</a>
             </div>
         </div>
         <div class="row">
@@ -80,11 +81,14 @@
                             <div class="col-md-6">
                                 <label>Email</label>
                             </div>
+
                             <div class="col-md-6">
                                 <p>{{ user.eMail }}</p>
                             </div>
                         </div>
                     </div>
+                    <a href="{{ path('main_home')}}">Retour</a>
+
                     <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
                         <div class="row">
                             <div class="col-md-6">
@@ -130,6 +134,7 @@
                             <div class="col-md-12">
                                 <label>Your Bio</label><br/>
                                 <p>Your detail description</p>
+
                             </div>
                         </div>
                     </div>
