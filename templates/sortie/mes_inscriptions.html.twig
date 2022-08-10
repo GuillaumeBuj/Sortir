@@ -5,12 +5,18 @@
 {% endblock %}
 
 {% block body %}
+    <h2>Sorties auxquelles je suis inscrit</h2><br>
     <section>
         <ul>
             {% for sortie in sorties %}
-                <li>Le {{ sortie.dateHeureDebut | date('d-m-Y')}}: {{ sortie.nom }}, à {{ sortie.lieu.nom }}. Etat: {{ sortie.etat.libelle }}
+                <li>
+                    Le {{ sortie.dateHeureDebut | date('d-m-Y')}}:
+                    <a href="{{ path('details', {'id': sortie.id}) }}">
+                         {{ sortie.nom }}
+                    </a>
+                    , à {{ sortie.lieu.nom }}. Etat: {{ sortie.etat.libelle }}
                     {% if(sortie.getParticipants().contains(app.user)) %}
-                        <a href="{{ path('sortie_mes_inscriptions', {'id': sortie.id}) }}"> -Se désister- </a>
+                        <a href="{{ path('sortie_se_desister', {'id': sortie.id}) }}"> -Se désister- </a>
                     {% endif %}
                 </li>
             {% endfor %}

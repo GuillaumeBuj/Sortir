@@ -128,7 +128,7 @@ class SortieController extends AbstractController
         $entityManager->flush();
 
         $this->addFlash('success','Désinscrit!');
-        return $this->redirectToRoute('sortie_list',[]);
+        return $this->redirectToRoute('sortie_mes_inscriptions',[]);
     }
 
     #[Route('/sortie/annuler/{id}', name:'sortie_annuler')]
@@ -168,17 +168,11 @@ class SortieController extends AbstractController
         return $this->redirectToRoute('sortie_mes_sorties');
     }
 
-    /*#[Route('/sortie/détails/{id}', name:'details')]
-    public function mettreAJour(int $id, Request $request,SortieRepository $sortieRepository, EntityManagerInterface $entityManager)
+    #[Route('/sortie/détails/{id}', name:'details')]
+    public function details(Sortie $sortie)
     {
-        $sortie=$sortieRepository->find($id);
-
-        $repoEtat = $entityManager->getRepository(EtatSortie::class);
-        $sortie->setEtat($repoEtat->findOneBy(array('libelle' => 'Ouverte')));
-
-        $entityManager->persist($sortie);
-        $entityManager->flush();
-
-        return $this->redirectToRoute('sortie_mes_sorties');
-    }*/
+        return $this->render('sortie/details.html.twig',[
+            'sortie'=>$sortie
+        ]);
+    }
 }
