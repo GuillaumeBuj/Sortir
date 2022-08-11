@@ -1,8 +1,4 @@
-{% extends 'base.html.twig' %}
 
-{% block title %}
-    {{ parent() }} - Modifier mon profil
-{% endblock %}
 
 {% block stylesheets %}
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
@@ -12,6 +8,13 @@
 {% endblock %}
 
 {% block body %}
+    {% for label, messages in app.flashes %}
+        {% for message in messages %}
+            <div class="flash flash-{{ label }}">
+                {{ message }}
+            </div>
+        {% endfor %}
+    {% endfor %}
 <div class="container emp-profile">
     <form method="post">
         <div class="row">
