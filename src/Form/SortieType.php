@@ -22,7 +22,7 @@ class SortieType extends AbstractType
                 'label' => 'Nom de la sortie'
             ])
             ->add('dateHeureDebut', DateTimeType::class, [
-                'label' => 'Date et heure de début de la sortie'
+                'label' => 'Début de la sortie',
             ])
             ->add('duree', IntegerType::class, [
                 'label'=> 'Durée en heure'
@@ -33,7 +33,7 @@ class SortieType extends AbstractType
             ])
             ->add('dateLimiteInscription')
             ->add('nbInscriptionsMax', IntegerType::class, [
-                'label'=> 'Nombre maximal d\'inscriptions de la sortie'
+                'label'=> 'Nombre maximal d\'inscrits'
             ])
             ->add('infosSortie')
         ;

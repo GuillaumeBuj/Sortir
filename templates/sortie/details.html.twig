@@ -3,6 +3,19 @@
 {% block title %}{{parent()}} - Détails sortie{% endblock %}
 
 {% block body %}
-    {{ sortie.nom }}, à {{ sortie.lieu.nom }}. Etat: {{ sortie.etat.libelle }} <br>
-    A FINIR
+    <h2>{{ sortie.nom }}</h2><br>
+    à {{ sortie.lieu.nom }}<br>
+    le {{ sortie.dateHeureDebut  | date('d M Y à h:m')}}<br>
+    Durée: {{ sortie.duree }} heures<br>
+    Etat: {{ sortie.etat.libelle }} <br>
+
+    Participants:
+    <ul>
+    {% for participant in sortie.participants %}
+        <li style="list-style-type: disc">{{ participant.pseudo }}</li>
+    {% endfor %}
+    </ul>
+    <br>
+    Infos:
+    {{ sortie.infosSortie }}
 {% endblock %}
