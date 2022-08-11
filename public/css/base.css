@@ -1176,3 +1176,15 @@ td {
 .event-wrapper.collapse {
     grid-row: span 4;
 }
+
+.flash{
+    padding: 20px;
+    font-weight:bold;
+    font-size: 1.4 rem;
+    margin: 1rem 0;
+    text-align: center;
+}
+
+.flash-success{
+    background-color: darkseagreen;
+}

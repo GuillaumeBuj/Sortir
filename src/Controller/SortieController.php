@@ -35,7 +35,7 @@ class SortieController extends AbstractController
             $entityManager->persist($sortie);
             $entityManager->flush();
 
-            $this->addFlash('success','Sortie créée!');
+            $this->addFlash('success','Sortie créée! Pensez à la publier.');
             return $this->redirectToRoute('main_home');
         }
 
@@ -104,7 +104,6 @@ class SortieController extends AbstractController
     public function participer(int $id, SortieRepository $sortieRepository, EntityManagerInterface $entityManager)
     {
         $sortie=$sortieRepository->find($id);
-        $participants=$sortie->getParticipants();
         $currentUser=$this->getUser();
 
         //condition: état 'ouverte' et date limite d'inscription non dépassée
@@ -114,7 +113,7 @@ class SortieController extends AbstractController
         $entityManager->flush();
 
         $this->addFlash('success','Inscrit!');
-        return $this->redirectToRoute('sortie_list',[]);
+        return $this->redirectToRoute('sortie_mes_inscriptions',[]);
     }
 
     #[Route('/sortie/se_desister/{id}', name:'sortie_se_desister')]
@@ -147,7 +146,7 @@ class SortieController extends AbstractController
             $entityManager->flush();
         return $this->redirectToRoute('sortie_mes_sorties');
         }
-
+        $this->addFlash('success','Sortie Annulée!');
         return $this->render('sortie/annuler.html.twig',[
             'annulationForm' => $annulationForm->createView(),
             'sortie'=>$sortie
@@ -164,7 +163,7 @@ class SortieController extends AbstractController
 
         $entityManager->persist($sortie);
         $entityManager->flush();
-
+        $this->addFlash('success','Sortie publiée!');
         return $this->redirectToRoute('sortie_mes_sorties');
     }
 
