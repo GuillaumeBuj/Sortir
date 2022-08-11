@@ -5,11 +5,14 @@
 {% endblock %}
 
 {% block body %}
+    <h2>Sorties que j'ai organisées</h2><br>
     <section>
-        Sorties que j'ai organisées<br>
         <ul>
             {% for sortie in sorties %}
-                <li>Le {{ sortie.dateHeureDebut | date('d-m-Y')}}: {{ sortie.nom }}, à {{ sortie.lieu.nom }}. Etat: {{ sortie.etat.libelle }}
+                <li>Le {{ sortie.dateHeureDebut | date('d-m-Y')}}:
+                    <a href="{{ path('details', {'id': sortie.id}) }}">
+                        {{ sortie.nom }}
+                    </a>, à {{ sortie.lieu.nom }}. Etat: {{ sortie.etat.libelle }}
                     {% if(sortie.etat.getLibelle=="Créée" or sortie.etat.getLibelle=="Ouverte" or sortie.etat.getLibelle=="Clôturée") %}
                          <a href="{{ path('sortie_annuler', {'id': sortie.id}) }}"> -Annuler- </a>
                     {% endif %}
