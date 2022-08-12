@@ -5,6 +5,22 @@
 {% endblock %}
 
 {% block body %}
+    <form>
+        <button type="submit" formaction="{{ path('sortie_create') }}">Créer sortie</button>
+        <button type="submit" formaction="{{ path('lieu_create') }}">Créer lieu</button>
+        <button type="submit" formaction="{{ path('ville_create') }}">Créer ville</button>
+        <button type="submit" formaction="{{ path('sortie_list') }}">Les Sorties</button>
+        <button type="submit" formaction="{{ path('sortie_mes_sorties') }}">Les Organisations</button>
+        <button type="submit" formaction="{{ path('sortie_mes_inscriptions') }}">Les Inscriptions</button>
+        <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+        {% for label, messages in app.flashes %}
+            {% for message in messages %}
+                <div class="flash flash-{{ label }}">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        {% endfor %}
+    </form>
     <h2>Liste des sorties</h2><br>
     <section>
         <ul>
